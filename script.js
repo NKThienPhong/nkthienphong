@@ -15,7 +15,7 @@ if (menuButton && navigation) {
   });
 }
 
-const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz6x3tjToWyreXWMXpswhKBb-NSubxRC0nnwEiAwWDEXWgcqLz1rNaYwn5hZgh2j4-w/exec';
+const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxcEK72X_op_kAXBpmfJZpep8Vpm6lS1BQ6WlxNKpHRQhc1I3kmUFdNQOiSK_lmcKSa/exec';
 const form = document.querySelector('.contact-form');
 
 if (form) {
