@@ -22,7 +22,7 @@ if (form) {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if (GOOGLE_SHEETS_ENDPOINT === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+    if (GOOGLE_SHEETS_ENDPOINT === 'https://script.google.com/macros/s/AKfycbzT3bmXymmGjsGx5mFAs0uLcWiBCqD_7sHaHi9Mu8pjZmLQUbGvQBmFW6dWA4UaAglz/exec') {
       alert('Form chưa được cấu hình. Vui lòng liên hệ quản trị viên.');
       return;
     }
