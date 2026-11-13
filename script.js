@@ -15,13 +15,49 @@ if (menuButton && navigation) {
   });
 }
 
+const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzT3bmXymmGjsGx5mFAs0uLcWiBCqD_7sHaHi9Mu8pjZmLQUbGvQBmFW6dWA4UaAglz/exec';
 const form = document.querySelector('.contact-form');
+
 if (form) {
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const button = form.querySelector('button');
-    button.textContent = 'Đã nhận yêu cầu ✓';
+
+    if (GOOGLE_SHEETS_ENDPOINT === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+      alert('Form chưa được cấu hình. Vui lòng liên hệ quản trị viên.');
+      return;
+    }
+
+    const button = form.querySelector('button[type="submit"]');
+    const originalButtonText = button.innerHTML;
+    const formData = new FormData(form);
+
     button.disabled = true;
+    button.textContent = 'Đang gửi...';
+
+    try {
+      await fetch(GOOGLE_SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          phone: formData.get('phone'),
+          email: formData.get('email'),
+          message: formData.get('message')
+        })
+      });
+
+      alert('Cảm ơn bạn! Thiên Phong đã nhận được thông tin và sẽ liên hệ sớm.');
+      form.reset();
+    } catch (error) {
+      alert('Có lỗi xảy ra, vui lòng gọi trực tiếp hotline 0945 948 894.');
+      console.error('Không thể gửi form tư vấn:', error);
+    } finally {
+      button.disabled = false;
+      button.innerHTML = originalButtonText;
+    }
   });
 }
 
