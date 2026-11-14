@@ -86,34 +86,14 @@ img {
 }
 
 .brand {
-    display: grid;
-    grid-template-columns: 35px auto;
-    grid-template-rows: 18px 14px;
-    column-gap: 10px;
+    display: inline-flex;
     align-items: center
 }
 
-.brand>span {
-    grid-row: span 2;
-    display: grid;
-    place-items: center;
-    background: var(--accent);
-    color: #fff;
-    font: 700 14px var(--display);
-    height: 35px
-}
-
-.brand b {
-    font: 700 17px var(--display);
-    letter-spacing: .09em;
-    line-height: 1
-}
-
-.brand small {
-    font-size: 8px;
-    letter-spacing: .22em;
-    color: var(--muted);
-    line-height: 1
+.brand>img {
+    width: 92px;
+    height: 62px;
+    object-fit: contain
 }
 
 .site-nav {
@@ -214,7 +194,7 @@ img {
 
 .kicker {
     color: var(--accent);
-    font-size: 10px;
+    font-size: 15px;
     letter-spacing: .18em;
     text-transform: uppercase;
     font-weight: 700;
@@ -742,8 +722,9 @@ footer {
     color: #fff
 }
 
-.brand-footer small {
-    color: #94a59c
+.brand-footer>img {
+    width: 140px;
+    height: 92px
 }
 
 .footer-grid>div>a {
